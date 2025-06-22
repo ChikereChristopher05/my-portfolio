@@ -688,7 +688,7 @@
                 </ul>
             </div>
         </div>
-    </nav><br><br><br><br>
+    </nav><br><br>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1094,37 +1094,37 @@
         });
 
         // Contact form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        //     e.preventDefault();
             
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+        //     const submitBtn = this.querySelector('button[type="submit"]');
+        //     const originalText = submitBtn.innerHTML;
             
-            // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-            submitBtn.disabled = true;
+        //     // Show loading state
+        //     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+        //     submitBtn.disabled = true;
             
-            // Simulate form submission
-            setTimeout(() => {
-                // Show success message
-                const alert = document.createElement('div');
-                alert.className = 'alert alert-success mt-3';
-                alert.innerHTML = '<i class="fas fa-check-circle me-2"></i>Message sent successfully! I\'ll get back to you soon.';
-                this.appendChild(alert);
+        //     // Simulate form submission
+        //     setTimeout(() => {
+        //         // Show success message
+        //         const alert = document.createElement('div');
+        //         alert.className = 'alert alert-success mt-3';
+        //         alert.innerHTML = '<i class="fas fa-check-circle me-2"></i>Message sent successfully! I\'ll get back to you soon.';
+        //         this.appendChild(alert);
                 
-                // Reset form
-                this.reset();
+        //         // Reset form
+        //         this.reset();
                 
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+        //         // Reset button
+        //         submitBtn.innerHTML = originalText;
+        //         submitBtn.disabled = false;
                 
-                // Remove alert after 5 seconds
-                setTimeout(() => {
-                    alert.remove();
-                }, 5000);
-            }, 2000);
-        });
+        //         // Remove alert after 5 seconds
+        //         setTimeout(() => {
+        //             alert.remove();
+        //         }, 5000);
+        //     }, 2000);
+        // });
 
         // Typing animation for hero text
         function typeWriter(element, text, speed = 100) {
