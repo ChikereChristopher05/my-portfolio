@@ -964,17 +964,17 @@
                     <form class="contact-form" data-aos="fade-up" data-aos-delay="400" id="contact-form">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                <input type="text" class="form-control" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Subject" required>
+                            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <textarea class="form-control" rows="5" name="message" placeholder="Your Message" required></textarea>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary" value="Send">
@@ -1010,25 +1010,33 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script type="text/javascript">
-        (function() {
-            emailjs.init({
-              publicKey: "kRlxO_Vu7tD0YWVSJ",
+    // Initialize EmailJS
+    (function () {
+        emailjs.init("kRlxO_Vu7tD0YWVSJ");
+    })();
+</script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Send the form using EmailJS
+            emailjs.sendForm(
+                "service_v5s6oii",         // Replace with your service ID
+                "template_omygs0h",        // Replace with your template ID
+                this                       // 'this' refers to the form element
+            ).then(() => {
+                console.log('SUCCESS!');
+                alert("Message sent successfully!");
+                this.reset(); // Optional: Reset the form after submission
+            }, (error) => {
+                console.log('FAILED...', error);
+                alert("Oops! Something went wrong. Please try again.");
             });
-        })();
-    </script>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                emailjs.sendForm("service_v5s6oii","template_fwu3bhf");
-                    .then(() => {
-                        console.log('SUCCESS!');
-                    }, (error) => {
-                        console.log('FAILED...', error);
-                    });
-            });
-        }
-    </script>
+        });
+    }
+</script>
     
     <script>
         // Initialize AOS
