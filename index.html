@@ -23,7 +23,7 @@
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                emailjs.sendForm("service_v5s6oii","template_omygs0h")
+                emailjs.sendForm("service_v5s6oii","template_omygs0h");
                     .then(() => {
                         console.log('SUCCESS!');
                     }, (error) => {
